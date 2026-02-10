@@ -22,8 +22,8 @@ export default function OrbitronText({
         /^[iIİı]$/.test(part) ? (
           <span
             key={i}
-            className="inline-block origin-bottom align-baseline scale-y-[0.88]"
-            style={{ fontSize: "0.92em" }}
+            className="inline-block origin-bottom align-baseline scale-y-[0.72]"
+            style={{ fontSize: "0.88em" }}
           >
             {part}
           </span>
