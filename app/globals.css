@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050505;
+  --foreground: #fff;
+  --neon-cyan: #00f0ff;
+  --industrial-orange: #ff4d00;
+  --surface: hsla(0, 0%, 100%, 0.03);
+  --surface-hover: hsla(0, 0%, 100%, 0.06);
+  --border: hsla(0, 0%, 100%, 0.06);
+  --border-hover: hsla(0, 0%, 100%, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.2);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 100%, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(0, 0%, 100%, 0.2);
+}
+
+/* Grid background */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.grid-bg:before {
+  content: "";
+  position: absolute;
+  inset: -80px;
+  background-image: linear-gradient(hsla(0, 0%, 100%, 0.02) 1px, transparent 0),
+    linear-gradient(90deg, hsla(0, 0%, 100%, 0.02) 1px, transparent 0);
+  background-size: 80px 80px;
+  animation: gridMove 30s linear infinite;
+}
+
+.grid-bg:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 60% 50% at 20% 20%,
+      rgba(0, 240, 255, 0.03) 0,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 80% 80%,
+      rgba(255, 77, 0, 0.02) 0,
+      transparent 70%
+    );
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-80px, -80px);
+  }
+}
+
+/* Scan overlay */
+.scan-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scan-overlay:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.08) 30%,
+    rgba(0, 240, 255, 0.15) 50%,
+    rgba(0, 240, 255, 0.08) 70%,
+    transparent
+  );
+  animation: scanLine 6s linear infinite;
+}
+
+@keyframes scanLine {
+  0% {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Glass effect */
+.glass {
+  background: hsla(0, 0%, 100%, 0.03);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid hsla(0, 0%, 100%, 0.06);
+}
+
+.glass-strong {
+  background: hsla(0, 0%, 100%, 0.05);
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+}
+
+.glass-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-hover:hover {
+  background: hsla(0, 0%, 100%, 0.06);
+  border-color: rgba(0, 240, 255, 0.15);
+  box-shadow:
+    0 0 0 1px rgba(0, 240, 255, 0.05),
+    0 8px 40px rgba(0, 0, 0, 0.3),
+    0 0 80px rgba(0, 240, 255, 0.03);
+}
+
+/* Glitch text */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text:before,
+.glitch-text:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitch-text:before {
+  color: var(--neon-cyan);
+  z-index: -1;
+  animation: glitch1 3s linear infinite alternate-reverse;
+}
+
+.glitch-text:after {
+  color: var(--industrial-orange);
+  z-index: -2;
+  animation: glitch2 4s linear infinite alternate-reverse;
+}
+
+@keyframes glitch1 {
+  0% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(-2px, 1px);
+  }
+  20% {
+    clip-path: inset(50% 0 20% 0);
+    transform: translate(2px, -1px);
+  }
+  40% {
+    clip-path: inset(10% 0 70% 0);
+    transform: translate(-1px, 2px);
+  }
+  60% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translate(1px, -2px);
+  }
+  80% {
+    clip-path: inset(30% 0 40% 0);
+    transform: translate(-1px, 1px);
+  }
+  to {
+    clip-path: inset(60% 0 20% 0);
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes glitch2 {
+  0% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(2px, -1px);
+  }
+  20% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    clip-path: inset(40% 0 30% 0);
+    transform: translate(1px, -2px);
+  }
+  60% {
+    clip-path: inset(20% 0 50% 0);
+    transform: translate(-1px, 2px);
+  }
+  80% {
+    clip-path: inset(50% 0 20% 0);
+    transform: translate(1px, -1px);
+  }
+  to {
+    clip-path: inset(30% 0 40% 0);
+    transform: translate(-1px, 1px);
+  }
+}
