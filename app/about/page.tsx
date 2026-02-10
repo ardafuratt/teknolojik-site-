@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
+import OrbitronText from "@/components/OrbitronText";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const valueIcons = [
@@ -44,7 +45,7 @@ export default function AboutPage() {
               {t.aboutPage.label}
             </span>
             <h1 className="mt-3 font-orbitron text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {t.aboutPage.heading}
+              <OrbitronText>{t.aboutPage.heading}</OrbitronText>
             </h1>
           </motion.div>
         </div>
@@ -63,14 +64,14 @@ export default function AboutPage() {
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
                 <h2 className="font-orbitron text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-                  {t.aboutPage.whoWeAre} <span className="text-neon-cyan">{t.aboutPage.whoWeAreHighlight}</span>
+                  <OrbitronText>{t.aboutPage.whoWeAre}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.aboutPage.whoWeAreHighlight}</OrbitronText></span>
                 </h2>
                 <p className="mt-6 text-sm leading-relaxed text-gray-400">{t.aboutPage.whoWeAreP1}</p>
                 <p className="mt-4 text-sm leading-relaxed text-gray-400">{t.aboutPage.whoWeAreP2}</p>
               </div>
               <div>
                 <h2 className="font-orbitron text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-                  {t.aboutPage.missionVision} <span className="text-neon-cyan">{t.aboutPage.missionVisionHighlight}</span>
+                  <OrbitronText>{t.aboutPage.missionVision}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.aboutPage.missionVisionHighlight}</OrbitronText></span>
                 </h2>
                 <p className="mt-6 text-sm leading-relaxed text-gray-400">{t.aboutPage.missionP1}</p>
                 <p className="mt-4 text-sm leading-relaxed text-gray-400">{t.aboutPage.missionP2}</p>
@@ -85,7 +86,7 @@ export default function AboutPage() {
                     <FileText className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white">{t.aboutPage.governance}</h3>
+                    <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white"><OrbitronText>{t.aboutPage.governance}</OrbitronText></h3>
                     <p className="mt-1 text-sm text-gray-500">{t.aboutPage.governanceDesc}</p>
                   </div>
                 </div>
@@ -113,14 +114,14 @@ export default function AboutPage() {
               {t.aboutPage.valuesLabel}
             </span>
             <h2 className="mt-3 font-orbitron text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-              {t.aboutPage.valuesHeading} <span className="text-neon-cyan">{t.aboutPage.valuesHighlight}</span>
+              <OrbitronText>{t.aboutPage.valuesHeading}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.aboutPage.valuesHighlight}</OrbitronText></span>
             </h2>
           </motion.div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {t.aboutPage.values.map((v, i) => (
               <motion.div key={v.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5, ease }} className="glass glass-hover rounded-2xl p-6">
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-neon-cyan/10 text-neon-cyan">{valueIcons[i]}</div>
-                <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white">{v.title}</h3>
+                <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white"><OrbitronText>{v.title}</OrbitronText></h3>
                 <p className="mt-2 text-xs leading-relaxed text-gray-500">{v.desc}</p>
               </motion.div>
             ))}
@@ -133,7 +134,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="text-center">
             <h2 className="font-orbitron text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-              {t.aboutPage.whyUsHeading} <span className="text-neon-cyan">{t.aboutPage.whyUsHighlight}</span>
+              <OrbitronText>{t.aboutPage.whyUsHeading}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.aboutPage.whyUsHighlight}</OrbitronText></span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-400">{t.aboutPage.whyUsDesc}</p>
           </motion.div>
@@ -141,7 +142,7 @@ export default function AboutPage() {
             {t.aboutPage.whyUs.map((item, i) => (
               <motion.div key={item.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5, ease }} className="glass glass-hover rounded-2xl p-6 text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-neon-cyan/10 text-neon-cyan">{whyUsIcons[i]}</div>
-                <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white">{item.title}</h3>
+                <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white"><OrbitronText>{item.title}</OrbitronText></h3>
                 <p className="mt-2 text-xs leading-relaxed text-gray-500">{item.desc}</p>
               </motion.div>
             ))}

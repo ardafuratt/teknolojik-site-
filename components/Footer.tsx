@@ -12,6 +12,7 @@ import {
   FileText,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import OrbitronText from "@/components/OrbitronText";
 type FooterLink = {
   label: string;
   href: string;
@@ -52,7 +53,7 @@ export default function Footer() {
                 <Cpu className="h-4 w-4 text-neon-cyan" />
               </div>
               <span className="font-orbitron text-base font-bold tracking-[0.15em] text-white">
-                MAKINA<span className="text-neon-cyan">FLEO</span>
+                <OrbitronText>MAKINA</OrbitronText><span className="text-neon-cyan"><OrbitronText>FLEO</OrbitronText></span>
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-500">
@@ -78,7 +79,7 @@ export default function Footer() {
 
           {(Object.entries(footerLinks) as [string, FooterLink[]][]).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-orbitron text-xs uppercase tracking-[0.2em] text-gray-400">{title}</h4>
+              <h4 className="font-orbitron text-xs uppercase tracking-[0.2em] text-gray-400"><OrbitronText>{title}</OrbitronText></h4>
               <ul className="mt-4 flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link.label}>

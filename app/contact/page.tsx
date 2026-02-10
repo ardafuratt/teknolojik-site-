@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
+import OrbitronText from "@/components/OrbitronText";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const socials = [
@@ -44,7 +45,7 @@ export default function ContactPage() {
               {t.contactPage.label}
             </span>
             <h1 className="mt-3 font-orbitron text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {t.contactPage.heading} <span className="text-neon-cyan">{t.contactPage.headingHighlight}</span>
+              <OrbitronText>{t.contactPage.heading}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.contactPage.headingHighlight}</OrbitronText></span>
             </h1>
             <p className="mt-4 max-w-2xl text-base text-gray-400">{t.contactPage.description}</p>
           </motion.div>
@@ -62,7 +63,7 @@ export default function ContactPage() {
               className="lg:col-span-2 flex flex-col gap-6"
             >
               <div className="glass rounded-2xl p-5 sm:p-6">
-                <h3 className="font-orbitron text-xs uppercase tracking-[0.15em] text-gray-400 mb-6">{t.contactPage.infoTitle}</h3>
+                <h3 className="font-orbitron text-xs uppercase tracking-[0.15em] text-gray-400 mb-6"><OrbitronText>{t.contactPage.infoTitle}</OrbitronText></h3>
                 <div className="flex flex-col gap-5">
                   <div className="flex items-start gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-neon-cyan/10 text-neon-cyan"><MapPin className="h-4 w-4" /></div>
@@ -89,7 +90,7 @@ export default function ContactPage() {
               </div>
 
               <div className="glass rounded-2xl p-5 sm:p-6">
-                <h3 className="font-orbitron text-xs uppercase tracking-[0.15em] text-gray-400 mb-5">{t.contactPage.socialsTitle}</h3>
+                <h3 className="font-orbitron text-xs uppercase tracking-[0.15em] text-gray-400 mb-5"><OrbitronText>{t.contactPage.socialsTitle}</OrbitronText></h3>
                 <div className="flex flex-col gap-3">
                   {socials.map((s) => (
                     <motion.a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" whileHover={{ x: 4 }} className={`group flex items-center gap-4 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-gray-400 transition-all duration-300 ${s.color}`}>
@@ -113,12 +114,12 @@ export default function ContactPage() {
               className="lg:col-span-3"
             >
               <div className="glass rounded-2xl p-5 sm:p-8">
-                <h3 className="font-orbitron text-xs uppercase tracking-[0.15em] text-gray-400 mb-6">{t.contactPage.formTitle}</h3>
+                <h3 className="font-orbitron text-xs uppercase tracking-[0.15em] text-gray-400 mb-6"><OrbitronText>{t.contactPage.formTitle}</OrbitronText></h3>
 
                 {submitted ? (
                   <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center justify-center py-16 text-center">
                     <CheckCircle className="h-12 w-12 text-neon-cyan mb-4" />
-                    <h4 className="font-orbitron text-lg font-bold text-white">{t.contactPage.successTitle}</h4>
+                    <h4 className="font-orbitron text-lg font-bold text-white"><OrbitronText>{t.contactPage.successTitle}</OrbitronText></h4>
                     <p className="mt-2 text-sm text-gray-400">{t.contactPage.successDesc}</p>
                   </motion.div>
                 ) : (

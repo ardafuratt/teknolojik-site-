@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { products, news, l } from "@/data/products";
 import Footer from "@/components/Footer";
+import OrbitronText from "@/components/OrbitronText";
 import { useLanguage } from "@/context/LanguageContext";
 /* ─── Animation Helpers ───────────────────────────────────── */
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -96,10 +97,12 @@ export default function HomePage() {
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="mt-7 font-orbitron text-3xl font-black uppercase leading-[1.08] tracking-tight text-white text-balance sm:mt-8 sm:text-4xl md:text-6xl lg:text-7xl">
-              <span className="glitch-text" data-text={t.hero.heading1}>{t.hero.heading1}</span>
+              <span className="glitch-text" data-text={t.hero.heading1}>
+                <OrbitronText>{t.hero.heading1}</OrbitronText>
+              </span>
               <br />
               <span className="bg-gradient-to-r from-neon-cyan via-cyan-300 to-white bg-clip-text text-transparent">
-                {t.hero.heading2}
+                <OrbitronText>{t.hero.heading2}</OrbitronText>
               </span>
             </motion.h1>
 
@@ -156,7 +159,7 @@ export default function HomePage() {
               className="flex flex-col items-center gap-2 px-4 py-8 sm:px-6 sm:py-10"
             >
               <div className="text-neon-cyan/50">{stat.icon}</div>
-              <span className="font-orbitron text-2xl font-bold text-white sm:text-3xl">{stat.value}</span>
+              <span className="font-orbitron text-2xl font-bold text-white sm:text-3xl"><OrbitronText>{stat.value}</OrbitronText></span>
               <span className="text-xs uppercase tracking-widest text-gray-500">{stat.label}</span>
             </motion.div>
           ))}
@@ -178,9 +181,9 @@ export default function HomePage() {
                 {t.mission.label}
               </span>
               <h2 className="mt-4 font-orbitron text-2xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl">
-                {t.mission.heading}{" "}
-                <span className="text-neon-cyan">{t.mission.headingHighlight}</span>{" "}
-                {t.mission.headingEnd}
+                <OrbitronText>{t.mission.heading}</OrbitronText>{" "}
+                <span className="text-neon-cyan"><OrbitronText>{t.mission.headingHighlight}</OrbitronText></span>{" "}
+                <OrbitronText>{t.mission.headingEnd}</OrbitronText>
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-gray-400 sm:mt-6 sm:text-base">
                 {t.mission.description}
@@ -207,7 +210,7 @@ export default function HomePage() {
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-neon-cyan/10 text-neon-cyan">
                     {cardIcons[i]}
                   </div>
-                  <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white">{card.title}</h3>
+                  <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white"><OrbitronText>{card.title}</OrbitronText></h3>
                   <p className="mt-2 text-xs leading-relaxed text-gray-500">{card.desc}</p>
                 </motion.div>
               ))}
@@ -232,7 +235,7 @@ export default function HomePage() {
                 {t.featured.label}
               </span>
               <h2 className="mt-3 font-orbitron text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
-                {t.featured.heading} <span className="text-neon-cyan">{t.featured.headingHighlight}</span>
+                <OrbitronText>{t.featured.heading}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.featured.headingHighlight}</OrbitronText></span>
               </h2>
             </div>
             <Link href="/products" className="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-neon-cyan">
@@ -283,7 +286,7 @@ export default function HomePage() {
                     </div>
 
                     <div className="flex flex-1 flex-col p-5">
-                      <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white">{product.name}</h3>
+                      <h3 className="font-orbitron text-sm font-bold uppercase tracking-wider text-white"><OrbitronText>{product.name}</OrbitronText></h3>
                       <p className="mt-1.5 text-xs leading-relaxed text-gray-500 line-clamp-2">
                         {l(product.tagline, lang)}
                       </p>
@@ -325,7 +328,7 @@ export default function HomePage() {
               {t.news.label}
             </span>
             <h2 className="mt-3 font-orbitron text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
-              {t.news.heading} <span className="text-neon-cyan">{t.news.headingHighlight}</span>
+              <OrbitronText>{t.news.heading}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.news.headingHighlight}</OrbitronText></span>
             </h2>
           </motion.div>
 
@@ -339,7 +342,7 @@ export default function HomePage() {
                 transition={{ delay: i * 0.08, duration: 0.5, ease }}
                 className="glass glass-hover rounded-2xl p-6"
               >
-                <span className="font-orbitron text-[10px] uppercase tracking-wider text-neon-cyan/60">{item.date}</span>
+                <span className="font-orbitron text-[10px] uppercase tracking-wider text-neon-cyan/60"><OrbitronText>{item.date}</OrbitronText></span>
                 <h3 className="mt-3 text-sm font-semibold leading-snug text-white">{l(item.title, lang)}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-gray-500">{l(item.description, lang)}</p>
               </motion.div>
@@ -364,7 +367,7 @@ export default function HomePage() {
                 <Users className="h-6 w-6 text-neon-cyan" />
               </div>
               <h2 className="font-orbitron text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-                {t.career.heading} <span className="text-neon-cyan">{t.career.headingHighlight}</span>
+                <OrbitronText>{t.career.heading}</OrbitronText> <span className="text-neon-cyan"><OrbitronText>{t.career.headingHighlight}</OrbitronText></span>
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-gray-400">{t.career.description}</p>
               <div className="mt-8">

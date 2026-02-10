@@ -8,6 +8,7 @@ import { ArrowLeft, Radar, Shield, Wifi, Cpu, SlidersHorizontal } from "lucide-r
 import { products, l, la, type Product, type ProductCategory } from "@/data/products";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
+import OrbitronText from "@/components/OrbitronText";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const catIcon: Record<string, React.ReactNode> = {
@@ -84,7 +85,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                   {t.statuses[product.status]}
                 </span>
               </div>
-              <h2 className="font-orbitron text-lg font-bold uppercase tracking-wider text-white sm:text-xl lg:text-2xl">{product.name}</h2>
+              <h2 className="font-orbitron text-lg font-bold uppercase tracking-wider text-white sm:text-xl lg:text-2xl"><OrbitronText>{product.name}</OrbitronText></h2>
               <p className="mt-1 text-sm text-neon-cyan/60">{l(product.tagline, lang)}</p>
             </div>
 
@@ -136,8 +137,8 @@ export default function ProductsPage() {
               {t.productsPage.label}
             </span>
             <h1 className="mt-3 font-orbitron text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {t.productsPage.heading}{" "}
-              <span className="bg-gradient-to-r from-neon-cyan to-neon-cyan/60 bg-clip-text text-transparent">{t.productsPage.headingHighlight}</span>
+              <OrbitronText>{t.productsPage.heading}</OrbitronText>{" "}
+              <span className="bg-gradient-to-r from-neon-cyan to-neon-cyan/60 bg-clip-text text-transparent"><OrbitronText>{t.productsPage.headingHighlight}</OrbitronText></span>
             </h1>
             <p className="mt-4 max-w-2xl text-sm text-gray-400 sm:text-base">{t.productsPage.description}</p>
           </motion.div>
